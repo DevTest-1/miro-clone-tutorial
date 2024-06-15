@@ -11,12 +11,12 @@ interface BoardListProps {
   orgId: string;
   query: {
     search?: string;
-    favorites?: boolean;
+    favorites?: string;
   };
 }
 
 const BoardList = ({ orgId, query }: BoardListProps) => {
-  const data = useQuery(api.boards.get, { orgId });
+  const data = useQuery(api.boards.get, { orgId, ...query });
 
   if (data === undefined) {
     return (
@@ -63,7 +63,7 @@ const BoardList = ({ orgId, query }: BoardListProps) => {
             authorName={board.authorName}
             createAt={board._creationTime}
             orgId={board.orgId}
-            isFavorite={false}
+            isFavorite={board.isFavorite}
           />
         ))}
       </div>
