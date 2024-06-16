@@ -1,6 +1,6 @@
 "use client";
 
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import { api } from "@/convex/_generated/api";
 import { toast } from "sonner";
 import { useApiMutation } from "@/hooks/use-api-mutation";
